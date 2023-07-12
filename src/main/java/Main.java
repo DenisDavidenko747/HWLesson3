@@ -8,35 +8,47 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Arbaletchik arbaletchik = new Arbaletchik(getName());
-
-        ArrayList<Unit> team = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            int val = new Random().nextInt(6);
+        System.out.println("Your  Team1: ");
+        int teamCount = 4;
+        Random rand = new Random();
+        ArrayList<Unit> team1 = new ArrayList<>();
+        for (int i = 0; i < teamCount; i++) {
+            int val = new Random().nextInt(4);
             switch (val) {
-                case 0 -> team.add(new Arbaletchik(getName()));
-                case 1 -> team.add(new Kopeyshik(getName()));
-                case 2 -> team.add(new Mag(getName()));
-                case 3 -> team.add(new Monax(getName()));
-                case 4 -> team.add(new Razboynik(getName()));
-                case 5 -> team.add(new Sniper(getName()));
-                case 6 -> team.add(new Krestyanin(getName()));
+                case 0 : team1.add(new Arbaletchik(getName(),0, val+1)); break;
+                case 1 : team1.add(new Kopeyshik(getName(),0,val+1)); break;
+                case 2 : team1.add(new Mag(getName(),0,val+1)); break;
+                case 3 : team1.add(new Monax(getName(),0,val+1));
+
             }
-            System.out.println(team.get(i).getInfo());
+                System.out.println(team1.get(i).getInfo());
         }
-            for (int i = 0; i < team.size(); i++) {
-                System.out.println(team.get(i).getInfo());
+
+        System.out.println("Your  Team2: ");
+        ArrayList<Unit> team2 = new ArrayList<>();
+        for (int i = 0; i < teamCount; i++) {
+            int val = new Random().nextInt(4);
+            switch (val) {
+                case 0:
+                    team2.add(new Arbaletchik(getName(), 5, val + 1));
+                case 1:
+                    team2.add(new Kopeyshik(getName(), 5, val + 1));
+                case 2:
+                    team2.add(new Mag(getName(), 5, val + 1));
+                case 3:
+                    team2.add(new Monax(getName(), 5, val + 1));
+
             }
-
-//        ArrayList<Unit> list = new ArrayList<>();
-//        team.add(new Arbaletchik(getName()));
-//        list.add(new Monax(getName()));
-//        list.get(0).getInfo();
-//        list.forEach(n-> System.out.println(n.getInfo()));
-
-
+            System.out.println(team2.get(i).getInfo());
         }
+            team1.forEach(n -> n.step(team2));
+
+
+
     }
+
+
+}
 
 
 

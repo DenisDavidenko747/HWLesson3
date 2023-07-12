@@ -1,5 +1,7 @@
+import java.util.ArrayList;
+
 public interface inGameInterface {
-    void step();
+    void step(ArrayList<Unit> units);
     String getInfo();
     }
 
